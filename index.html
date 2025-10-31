@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My CloudFront Static Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0078D7;
+      color: white;
+      padding: 20px 0;
+    }
+    img {
+      width: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to My CloudFront Website!</h1>
+  </header>
+
+  <main>
+    <p>This website is hosted on Amazon S3 and delivered securely via CloudFront CDN.</p>
+    <p>Below is an image loaded from the same S3 bucket:</p>
+    <img src="https://static-website-hosting-allamesh.s3.ap-south-1.amazonaws.com/IMG_20250227_232226.jpg" alt="S3 Image">
+  </main>
+
+  <footer>
+    <p>© 2025 My CloudFront Demo | Hosted on AWS S3</p>
+  </footer>
+</body>
+</html>
