@@ -15,5 +15,12 @@ pipeline {
                 '''
             }
         }
+        stage('Final Stage') {
+            steps {
+                sh '''
+                    echo "Pipeline Executed Successfully"
+                '''     
+            }
+        }
     }
 }
