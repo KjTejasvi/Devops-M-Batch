@@ -8,7 +8,7 @@ pipeline {
                 '''
             }
         }
-        stage('Bye') {
+        stage('Middle Stage') {
             steps {
                 sh '''
                     echo "This is My First Pipeline"
