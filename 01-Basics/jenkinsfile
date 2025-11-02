@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                sh '''
+                    echo "My Name is Allamesh K J"
+                '''
+            }
+        }
+        stage('Bye') {
+            steps {
+                sh '''
+                    echo "This is My First Pipeline"
+                '''
+            }
+        }
+    }
+}
