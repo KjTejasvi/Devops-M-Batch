@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Hello') {
+        stage('Initial Stage') {
             steps {
                 sh '''
                     echo "My Name is Allamesh K J"
