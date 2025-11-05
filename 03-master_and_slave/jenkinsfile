@@ -1,8 +1,9 @@
 pipeline{
     agent none
     stages{
-        agent {label 'slave'}
+        
         stage('test'){
+            agent {label 'slave'}
             steps{
                 sh 'hostname -I'
             }
