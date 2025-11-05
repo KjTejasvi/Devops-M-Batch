@@ -9,6 +9,7 @@ pipeline{
             }
         }
         stage('build'){
+            agent any
             steps{
                 sh 'hostname -I'
             }
