@@ -1,0 +1,10 @@
+pipeline{
+    agent slave
+    stages{
+        stage('test'){
+            steps{
+                sh 'hostname -I'
+            }
+        }
+    }
+}
