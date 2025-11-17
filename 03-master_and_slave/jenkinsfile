@@ -8,5 +8,10 @@ pipeline{
                 sh 'hostname -I'
             }
         }
+        stage('build'){
+            steps{
+                sh 'hostname -I'
+            }
+        }
     }
 }
