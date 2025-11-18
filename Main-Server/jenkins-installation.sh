@@ -11,5 +11,4 @@ sudo apt update
 sudo apt install jenkins -y
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
-sudo systemctl status jenkins
-sudo hostname Main-server
+sudo hostnamectl set-hostname Main-server
