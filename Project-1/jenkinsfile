@@ -31,7 +31,7 @@ pipeline {
 			stage('Approval') {
 				steps {
 					script {
-						def plan = readFile 'iac-repo/Project-1/tfplan.txt'
+						def plan = readFile 'iac-repo/tfplan.txt'
 						input (
 						message = 'Do you want to proceed with the terraform action..?' 
 						parameters:[ text(name: 'paln' , description: 'Can you reweive the plan', defaultValue: 'plan')]
