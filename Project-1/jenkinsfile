@@ -43,13 +43,13 @@ pipeline {
         
 			stage('apply or destroy') {
 				when {
-					expression{  return param.Terraformaction =='apply' || param.Terraformaction == 'destroy'
+					expression{  return params.Terraformaction =='apply' || params.Terraformaction == 'destroy'
 					}
 				}
 				
 				steps {
                     script {
-					if (params.Terraformaction == 'Apply'){
+					if (params.Terraformaction == 'apply'){
 						sh ' cd IAC-Repo/Project-1 terraform apply -input = false tfplan'
 					}else if (params.Terrafornmaction == 'destroy') {
 						sh ' cd IAC-Repo/Project-1 terraform destroy -auto-approve'
