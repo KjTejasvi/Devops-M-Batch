@@ -25,6 +25,15 @@ pipeline{
                 }
             }
         }
+
+        stage('DEBUG') {
+            steps {
+                sh 'echo REGION=$AWS_REGION'
+                sh 'echo DEFAULT_REGION=$AWS_DEFAULT_REGION'
+                sh 'aws configure list'
+                sh 'cat ~/.aws/config || true'
+    }
+}
     
         stage('Plan'){
             steps{
