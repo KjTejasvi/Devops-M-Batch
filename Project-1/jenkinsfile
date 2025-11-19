@@ -22,9 +22,12 @@ pipeline {
 			
 			stage('Plan') {
 				steps {
-						sh 'pwd;cd Project-1/ terraform init'
-						sh 'pwd;cd Project-1/ terraform plan -out tfplan'
-						sh 'pwd;cd Project-1/ terraform show -no-colour tfplan >> ../tfplan.txt'
+					sh '''
+                cd iac-repo/Project-1
+                terraform init
+                terraform plan -out tfplan
+                terraform show -no-color tfplan > ../tfplan.txt
+                '''
 				}
 			}
 			
