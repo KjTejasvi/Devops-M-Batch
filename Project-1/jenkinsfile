@@ -2,4 +2,59 @@ pipeline {
     parameters {
         choice(name : 'Terraformaction' , choices: ['apply', 'destroy'], description: 'choose the terraform action')
     }
+	
+	environment {
+		AWS_ACCESS_KEY_ID = credentials("Access-Key")
+		AWS_SECRET_KEY_ID = credentials("Secret-Key")
+	}
+	
+	agent any 
+		stages {
+			stage('Git-Checkout'){
+				steps {
+					script{
+						dir("IAC-Repo")
+						git branch: 'IAC-Project', url:'https://github.com/KjTejasvi/Devops-M-Batch.git'
+					}
+				}
+			}
+			
+			stage('Plan') {
+				steps {
+						sh 'pwd;cd Project-1/ terraform init'
+						sh 'pwd;cd Project-1/ terraform plan -out tfplan'
+						sh 'pwd;cd Project-1/ terraform show -no-colour tfplan >> tfplan.txt'
+				}
+			}
+			
+			stage('Approval') {
+				steps {
+					script {
+						def plan = readFile 'IAC-Repo/tfpan.txt'
+						input (
+						message = 'Do you want to proceed with the terraform action..?' 
+						parameters: [text(name: 'paln' , description: 'Can you reweive the plan', defaultValue: 'plan']
+						)
+					}
+				}
+			}
+			
+			stage('apply or destroy') {
+				when {
+					expression{  return param.Terraformaction =='apply' || param.Terraformaction == 'destroy'
+					}
+				}
+				
+				steps {
+					if (param.Terraformaction == 'Apply'){
+						sh ' cd IAC-Repo/Project-1 terraform apply -input = false tfplan'
+					}else if (param.Terrafornmaction == 'destroy') {
+						sh ' cd IAC-Repo/Project-1 terraform destroy -auto-approve'
+					}
+				}
+			}
+				 
+					
+					
+		
 }
