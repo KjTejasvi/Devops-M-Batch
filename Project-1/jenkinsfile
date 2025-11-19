@@ -24,7 +24,7 @@ pipeline {
 				steps {
 						sh 'pwd;cd Project-1/ terraform init'
 						sh 'pwd;cd Project-1/ terraform plan -out tfplan'
-						sh 'pwd;cd Project-1/ terraform show -no-colour tfplan >> tfplan.txt'
+						sh 'pwd;cd Project-1/ terraform show -no-colour tfplan >> ../tfplan.txt'
 				}
 			}
 			
