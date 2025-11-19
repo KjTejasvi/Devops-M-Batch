@@ -33,7 +33,7 @@ pipeline {
 						def plan = readFile 'IAC-Repo/tfpan.txt'
 						input (
 						message = 'Do you want to proceed with the terraform action..?' 
-						parameters:[ (textname: 'paln' , description: 'Can you reweive the plan', defaultValue: 'plan')]
+						parameters:[ text(name: 'paln' , description: 'Can you reweive the plan', defaultValue: 'plan')]
 						)
 					}
 				}
