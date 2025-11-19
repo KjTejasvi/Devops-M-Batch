@@ -14,6 +14,12 @@ pipeline{
 
     // All stage definitions MUST be inside this single stages block
     stages{
+        stage('Clean Workspace') {
+            steps {
+            cleanWs()
+    }
+}
+
         stage('checkout'){
             steps{
                 script {
