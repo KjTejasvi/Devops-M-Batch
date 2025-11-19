@@ -13,9 +13,10 @@ pipeline {
 			stage('Git-Checkout'){
 				steps {
 					script{
-						dir("IAC-Repo")
+						dir("IAC-Repo"){
 						git branch: 'IAC-Project', url:'https://github.com/KjTejasvi/Devops-M-Batch.git'
-					}
+                        }
+                    }
 				}
 			}
 			
