@@ -51,7 +51,7 @@ pipeline {
                     script {
 					if (params.Terraformaction == 'apply'){
 						sh ' cd IAC-Repo/Project-1 terraform apply -input = false tfplan'
-					}else if (params.Terrafornmaction == 'destroy') {
+					}else if (params.Terraformaction == 'destroy') {
 						sh ' cd IAC-Repo/Project-1 terraform destroy -auto-approve'
 					}
                     }
