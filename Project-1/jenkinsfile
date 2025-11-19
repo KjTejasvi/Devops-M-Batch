@@ -35,6 +35,18 @@ pipeline{
                 sh 'cat ~/.aws/config || true'
     }
 }
+
+        stage('Debug Terraform Dir') {
+            steps {
+                sh 'pwd'
+                sh 'ls -R iac-repo/Project-1'
+                sh 'cat iac-repo/Project-1/provider.tf || true'
+                sh 'cat iac-repo/Project-1/main.tf || true'
+                sh 'cat iac-repo/Project-1/variables.tf || true'
+                sh 'cat iac-repo/Project-1/terraform.tfvars || true'
+    }
+}
+
     
         stage('Plan'){
             steps{
