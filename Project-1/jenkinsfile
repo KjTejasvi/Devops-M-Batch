@@ -39,6 +39,7 @@ pipeline {
 				}
 			}
 			
+        
 			stage('apply or destroy') {
 				when {
 					expression{  return param.Terraformaction =='apply' || param.Terraformaction == 'destroy'
