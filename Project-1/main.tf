@@ -9,7 +9,7 @@ resource "aws_vpc" "myvpc" {
   enable_dns_support = true
 
   tags = {
-    Name = "VPC-PRoject"
+    Name = "VPC-Project"
   }
 }
 
