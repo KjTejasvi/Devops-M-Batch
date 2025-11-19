@@ -53,9 +53,6 @@ pipeline {
 						sh ' cd IAC-Repo/Project-1 terraform destroy -auto-approve'
 					}
 				}
-			}
-				 
-					
-					
-		
+			}				
+        }
 }
