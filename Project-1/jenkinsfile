@@ -31,7 +31,7 @@ pipeline {
 			stage('Approval') {
 				steps {
 					script {
-						def plan = readFile 'iac-Repo/tfpan.txt'
+						def plan = readFile 'iac-repo/Project-1/tfplan.txt'
 						input (
 						message = 'Do you want to proceed with the terraform action..?' 
 						parameters:[ text(name: 'paln' , description: 'Can you reweive the plan', defaultValue: 'plan')]
@@ -49,9 +49,9 @@ pipeline {
 				
 				steps {
                     script {
-					if (param.Terraformaction == 'Apply'){
+					if (params.Terraformaction == 'Apply'){
 						sh ' cd IAC-Repo/Project-1 terraform apply -input = false tfplan'
-					}else if (param.Terrafornmaction == 'destroy') {
+					}else if (params.Terrafornmaction == 'destroy') {
 						sh ' cd IAC-Repo/Project-1 terraform destroy -auto-approve'
 					}
                     }
